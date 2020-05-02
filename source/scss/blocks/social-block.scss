@@ -40,7 +40,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
-    transition: all 0.23s ease;
+    transition: all 0.35s ease;
   }
 
   svg {
@@ -176,7 +176,7 @@
   border-radius: 50%;
   opacity: 0;
   transform: translateY(4px);
-  transition: all 0.23s ease-out;
+  transition: all 0.35s ease-out;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
