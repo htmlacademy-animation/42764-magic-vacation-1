@@ -37,8 +37,8 @@
   color: $c-light;
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-20px);
-  transition: transform 0.5s  cubic-bezier(0.25, 1, 0.9, 1);
+  transform: translateX(-2rem);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.9, 1) 0.1s;
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -269,7 +269,7 @@
       background-color: $c-light;
       display: block;
       right: 0;
-      transition: width 0.35s ease;
+      transition: width 0.35s ease 0.15s;
 
       @media (min-width: $stop-scaling) {
         left: -5px;
@@ -289,9 +289,13 @@
       }
     }
 
-    &.active {
+    .loaded &.active,
+    &:hover,
+    &:focus {
       &::after {
         width: 100%;
+        right: auto;
+        left: 0;
       }
     }
 
@@ -301,10 +305,8 @@
       outline: none;
 
       &::after {
+        transition-delay: 0s;
         background-color: $c-purple;
-        width: 100%;
-        right: auto;
-        left: 0;
       }
     }
   }
