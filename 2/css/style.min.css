@@ -1658,8 +1658,8 @@ img {
   color: #ffffff;
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-20px);
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.9, 1); }
+  transform: translateX(-2rem);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.9, 1) 0.1s; }
   .page-header__logo:hover {
     opacity: 0.8; }
   .page-header__logo:focus {
@@ -1848,7 +1848,7 @@ img {
       background-color: #ffffff;
       display: block;
       right: 0;
-      transition: width 0.35s ease; }
+      transition: width 0.35s ease 0.15s; }
       @media (min-width: 2000px) {
         .page-header__menu a::after {
           left: -5px;
@@ -1863,16 +1863,16 @@ img {
           left: 0;
           right: 0;
           background-color: #5f458c; } }
-    .page-header__menu a.active::after {
-      width: 100%; }
+    .loaded .page-header__menu a.active::after, .page-header__menu a:hover::after, .page-header__menu a:focus::after {
+      width: 100%;
+      right: auto;
+      left: 0; }
     .page-header__menu a:hover, .page-header__menu a:focus {
       color: #a67ee5;
       outline: none; }
       .page-header__menu a:hover::after, .page-header__menu a:focus::after {
-        background-color: #a67ee5;
-        width: 100%;
-        right: auto;
-        left: 0; }
+        transition-delay: 0s;
+        background-color: #a67ee5; }
 
 .page-header__social {
   margin-left: 4.8rem; }
@@ -3130,13 +3130,16 @@ img {
     left: 50%;
     transform: translate(-50%, -50%);
     content: "";
-    width: 100%;
-    height: 100%;
+    width: 0;
+    height: 0;
     border-radius: 50%;
     background-color: #ffffff;
     border: 2px solid #ffffff;
     z-index: -1;
-    transition: all 0.35s ease; }
+    transition: all 0.5s cubic-bezier(0.5, 0.75, 0.75, 1.55); }
+  .loaded .social-block__toggler::before {
+    width: 100%;
+    height: 100%; }
   .social-block__toggler svg {
     position: absolute;
     top: 50%;
@@ -3148,6 +3151,7 @@ img {
   .social-block--active .social-block__toggler {
     color: #ffffff; }
     .social-block--active .social-block__toggler::before {
+      transition: all 0.35s ease;
       background-color: #a67ee5;
       border-color: #a67ee5; }
   .social-block__toggler:hover {
@@ -3304,6 +3308,14 @@ img {
       transition-delay: 0.1s; }
     .social-block--active .social-block__link--vk {
       transition-delay: 0.2s; }
+
+@keyframes tryIt {
+  from {
+    width: 0;
+    height: 0; }
+  to {
+    width: 100%;
+    height: 100%; } }
 
 
 /*# sourceMappingURL=style.min.css.map*/
