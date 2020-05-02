@@ -308,7 +308,9 @@
 }
 
 .screen--prizes {
-  background-color: $c-dark;
+  &.active {
+    z-index: 2;
+  }
 }
 
 .screen--game {

@@ -1,0 +1,14 @@
+.fill-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background-color: $c-dark;
+  transform: translateY(100%);
+
+  &.active {
+    animation: fillScreen 0.65s forwards;
+  }
+}
