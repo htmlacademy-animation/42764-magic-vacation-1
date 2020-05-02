@@ -250,7 +250,7 @@
       height: 2px;
       background-color: $c-light;
       display: block;
-      left: 0;
+      right: 0;
       transition: width 0.23s ease;
 
       @media (min-width: $stop-scaling) {
@@ -285,6 +285,8 @@
       &::after {
         background-color: $c-purple;
         width: 100%;
+        right: auto;
+        left: 0;
       }
     }
   }
