@@ -96,7 +96,7 @@
   justify-content: flex-end;
   align-items: flex-end;
   margin-top: auto;
-  animation: slideToLeft 1.25s forwards;
+  animation: slideToLeftL 1.25s forwards;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     flex-direction: column;
