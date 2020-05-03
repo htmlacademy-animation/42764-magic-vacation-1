@@ -1542,6 +1542,7 @@ img {
   line-height: 0.906;
   letter-spacing: -0.04em; }
   .intro__title .word {
+    padding: 0.5rem 0;
     margin: 0 -0.04em; }
   .intro__title .word > .letter {
     transform: translate3d(0, 14rem, 0); }
@@ -1554,7 +1555,9 @@ img {
   @media (max-width: 1024px) and (orientation: portrait) {
     .intro__title {
       max-width: 100%;
-      font-size: 3.6rem; } }
+      font-size: 3.6rem; }
+      .intro__title.active .word > .letter {
+        transform: translate3d(0, 1rem, 0); } }
   @media (max-width: 1024px) and (orientation: landscape) {
     .intro__title {
       font-size: 10rem; } }
@@ -1655,13 +1658,11 @@ img {
   line-height: 0.906;
   letter-spacing: -0.04em; }
   .intro__date .word {
-    padding: 0 0.1em; }
+    padding: 0.5rem 0.1em; }
     .intro__date .word:first-child {
       padding-left: 0; }
-    .intro__date .word:last-child {
-      padding-right: 0; }
   .intro__date .word > .letter {
-    transform: translate3d(0, 4.8rem, 0); }
+    transform: translate3d(0, 5.5rem, 0); }
   .intro__date.active .word > .letter {
     transform: translate3d(0, 0, 0); }
   @media (min-width: 2000px) {
