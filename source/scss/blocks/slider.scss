@@ -66,7 +66,7 @@
   &.swiper-slide-active,
   &.swiper-slide-next {
     .slider__item-text {
-      animation: slideToLeft 0.5s ease-out forwards;
+      animation: slideToLeftL 0.5s ease-out forwards;
     }
   }
 }
