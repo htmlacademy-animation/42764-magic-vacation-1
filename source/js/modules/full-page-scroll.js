@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import {titleAccentTypography, dateAccentTypography} from './intro';
 
 export default class FullPageScroll {
   constructor() {
@@ -33,6 +34,7 @@ export default class FullPageScroll {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
     this.changePageDisplay();
+    this.handleAnimations();
   }
 
   changePageDisplay() {
@@ -99,5 +101,15 @@ export default class FullPageScroll {
   showScreen(screen) {
     screen.classList.remove(`screen--hidden`);
     screen.classList.add(`active`);
+  }
+
+  handleAnimations() {
+    if (this.activeScreen === 0) {
+      setTimeout(() => titleAccentTypography.runAnimation(), 500);
+      setTimeout(() => dateAccentTypography.runAnimation(), 1300);
+    } else {
+      titleAccentTypography.destroyAnimation();
+      dateAccentTypography.destroyAnimation();
+    }
   }
 }

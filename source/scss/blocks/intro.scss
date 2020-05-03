@@ -33,6 +33,19 @@
   line-height: 0.906;
   letter-spacing: -0.04em;
 
+  .word {
+    padding: 0.5rem 0;
+    margin: 0 -0.04em;
+  }
+
+  .word > .letter {
+    transform: translate3d(0, 14rem, 0);
+  }
+
+  &.active .word > .letter {
+    transform: translate3d(0, 2rem, 0);
+  }
+
   @media (min-width: $stop-scaling) {
     max-width: 990px;
     font-size: 120px;
@@ -41,6 +54,11 @@
   @media (max-width: $tablet) and (orientation: portrait) {
     max-width: 100%;
     font-size: 3.6rem;
+
+    &.active .word > .letter {
+      transform: translate3d(0, 1rem, 0);
+    }
+
   }
 
   @media (max-width: $tablet) and (orientation: landscape) {
@@ -93,7 +111,12 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.27;
-  animation: fadeIn 0.5s forwards;
+  opacity: 0;
+  transform: translateY(2.5rem);
+
+  .active & {
+    animation: fadeIn 0.5s forwards 1s;
+  }
 
   @media (min-width: $stop-scaling) {
     width: 509px;
@@ -142,6 +165,12 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+  opacity: 0;
+  visibility: hidden;
+
+  .active & {
+    animation: opacity 1.35s forwards 1.35s;
+  }
 
   @media (min-width: $stop-scaling) {
     margin: 0 0 16px;
@@ -157,6 +186,22 @@
   font-size: 4.8rem;
   line-height: 0.906;
   letter-spacing: -0.04em;
+
+  .word {
+    padding: 0.5rem 0.1em;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  .word > .letter {
+    transform: translate3d(0, 5.5rem, 0);
+  }
+
+  &.active .word > .letter {
+    transform: translate3d(0, 0, 0);
+  }
 
   @media (min-width: $stop-scaling) {
     margin: 0 0 0 -5px;
