@@ -32,7 +32,7 @@
   line-height: 0.906;
   letter-spacing: -0.04em;
   opacity: 0;
-  animation: fadeIn 0.75s forwards;
+  animation: fadeIn 0.75s ease forwards;
 
   @media (min-width: $stop-scaling) {
     margin-bottom: 50px;
@@ -62,7 +62,7 @@
   font-size: 2.4rem;
   line-height: 1.2;
   opacity: 0;
-  animation: fadeIn 0.75s forwards 0.25s;
+  animation: fadeIn 0.75s ease forwards 0.25s;
 
   @media (min-width: $stop-scaling) {
     margin-left: 58px;
@@ -169,6 +169,8 @@
     text-align: center;
     transform: scale(0);
     color: $c-light;
+    will-change: transform;
+    animation: scaleRulesItem 0.65s cubic-bezier(0.35, 1.55, 0.65, 1) forwards;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
@@ -191,6 +193,8 @@
     margin: 0;
     opacity: 0;
     transform: translateX(2rem);
+    will-change: transform;
+    animation: slideToLeftS 0.75s cubic-bezier(0.35, 1, 0.65, 1) forwards;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
@@ -200,11 +204,11 @@
   @for $i from 1 through 4 {
     &:nth-child(#{$i}) {
       &::before {
-        animation: scaleRulesItem 0.65s cubic-bezier(0.35, 1.55, 0.65, 1) forwards #{0.15 + $i * 0.15}s;
+        animation-delay: #{0.5 + $i * 0.2}s;
       }
 
       p {
-        animation: slideToLeftS 0.75s cubic-bezier(0.35, 1, 0.65, 1) forwards #{0.15 + $i * 0.15}s;
+        animation-delay: #{0.65 + $i * 0.2}s;
       }
     }
   }
