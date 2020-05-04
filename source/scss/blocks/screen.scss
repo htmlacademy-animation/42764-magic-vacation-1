@@ -305,6 +305,26 @@
     background-size: auto calc(100vh - 13.8rem), 100% 25rem;
     background-position: top center, bottom center;
   }
+
+  .slider__item-title {
+    .word {
+      padding: 0.5rem 0;
+      margin: 0 -0.04em;
+    }
+
+    .word > .letter {
+      transform: translate3d(0, 5rem, 0);
+    }
+
+    &.active .word > .letter {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .slider__pagination {
+    opacity: 0;
+    animation: opacity 0.75s forwards 0.95s;
+  }
 }
 
 .screen--prizes {

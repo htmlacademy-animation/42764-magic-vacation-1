@@ -1,5 +1,6 @@
 import throttle from 'lodash/throttle';
 import {titleAccentTypography, dateAccentTypography} from './intro';
+import {historyTitleAccentTypography} from './history';
 
 export default class FullPageScroll {
   constructor() {
@@ -104,12 +105,21 @@ export default class FullPageScroll {
   }
 
   handleAnimations() {
-    if (this.activeScreen === 0) {
+    const isIntroPage = this.activeScreen === 0;
+    const isHistoryPage = this.activeScreen === 1;
+
+    if (isIntroPage) {
       setTimeout(() => titleAccentTypography.runAnimation(), 500);
       setTimeout(() => dateAccentTypography.runAnimation(), 1300);
     } else {
       titleAccentTypography.destroyAnimation();
       dateAccentTypography.destroyAnimation();
+    }
+
+    if (isHistoryPage) {
+      setTimeout(() => historyTitleAccentTypography.runAnimation(), 100);
+    } else {
+      historyTitleAccentTypography.destroyAnimation();
     }
   }
 }
