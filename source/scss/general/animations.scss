@@ -50,3 +50,26 @@
     visibility: visible;
   }
 }
+
+@keyframes rollToRight {
+  from {
+    opacity: 0;
+    transform: translateX(-60px) rotate(-135deg);
+  }
+  to {
+    visibility: visible;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@keyframes rollToLeft {
+  from {
+    opacity: 0;
+    transform: translateX(60px) rotate(135deg);
+  }
+  to {
+    visibility: visible;
+    transform: translateX(0) rotate(0);
+  }
+}
+
