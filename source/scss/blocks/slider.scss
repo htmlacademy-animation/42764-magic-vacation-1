@@ -63,6 +63,13 @@
       }
     }
   }
+
+  &.swiper-slide-active,
+  &.swiper-slide-next {
+    .slider__item-text {
+      animation: slideToLeftL 0.5s ease-out forwards 0.65s;
+    }
+  }
 }
 
 .slider__item-title {
@@ -96,6 +103,7 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
@@ -155,10 +163,28 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+  visibility: hidden;
+  will-change: transform;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
     height: 40px;
+  }
+
+  &--prev,
+  &--next {
+    animation-duration: 0.75s;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0, 1.55);
+    animation-fill-mode: forwards;
+    animation-delay: 0.95s;
+  }
+
+  &--prev {
+    animation-name: rollToRight;
+  }
+
+  &--next {
+    animation-name: rollToLeft;
   }
 
   &::before {
