@@ -52,6 +52,7 @@
     height: 2.2rem;
   }
 
+  &:hover,
   .social-block--active & {
     color: $c-light;
 
@@ -276,16 +277,5 @@
     &--vk {
       transition-delay: 0.2s;
     }
-  }
-}
-
-@keyframes tryIt {
-  from {
-    width: 0;
-    height: 0;
-  }
-  to {
-    width: 100%;
-    height: 100%;
   }
 }

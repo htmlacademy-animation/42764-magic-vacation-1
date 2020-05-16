@@ -157,6 +157,10 @@
         width: 10rem;
       }
     }
+
+    .prizes__desc {
+      margin-top: 7rem;
+    }
   }
 
   &--cases {
@@ -172,7 +176,7 @@
     }
 
     .prizes__icon {
-      width: 18.8rem;
+      width: 30rem;
 
       @media (min-width: $stop-scaling) {
         width: 188px;
