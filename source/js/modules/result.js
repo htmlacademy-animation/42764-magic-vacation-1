@@ -14,6 +14,8 @@ export default () => {
         });
         targetEl[0].classList.add(`screen--show`);
         targetEl[0].classList.remove(`screen--hidden`);
+
+        animateResultSvg(targetEl[0]);
       });
     }
 
@@ -28,5 +30,43 @@ export default () => {
         document.getElementById(`message-field`).focus();
       });
     }
+  }
+
+  function animateResultSvg(element) {
+    const resultTitle = element.querySelector(`.result__title`);
+    const svg = resultTitle.querySelector(`svg`);
+    const svgClone = svg.cloneNode(true);
+    const pathes = svgClone.querySelectorAll(`path`);
+
+    svg.remove();
+
+    [].slice.call(pathes).forEach((path, index) => {
+      const pathTotalLength = path.getTotalLength();
+
+      path.setAttribute(`stroke-dashoffset`, 0);
+      path.setAttribute(`stroke-dasharray`, `${pathTotalLength / 24} ${7 * pathTotalLength / 24}`);
+
+      const strokeDasharrayAnimate = path.querySelector(`#strokeDasharrayAnimate`);
+      const transformAnimate = path.querySelector(`#transformAnimate`);
+
+      if (strokeDasharrayAnimate) {
+        strokeDasharrayAnimate.setAttribute(`from`, `${pathTotalLength / 24} ${7 * pathTotalLength / 24}`);
+        strokeDasharrayAnimate.setAttribute(`to`, `${pathTotalLength / 3} 0`);
+        strokeDasharrayAnimate.setAttribute(`dur`, `0.5s`);
+
+        if (transformAnimate) {
+          strokeDasharrayAnimate.setAttribute(`begin`, `${(index + 1) * 100}ms`);
+          strokeDasharrayAnimate.setAttribute(`dur`, `0.1s`);
+        }
+      }
+
+      if (transformAnimate) {
+        transformAnimate.setAttribute(`values`, `0 0; 0 100; 0 80; 0 100`);
+        transformAnimate.setAttribute(`begin`, `${(index + 1) * 100}ms`);
+        transformAnimate.setAttribute(`dur`, `0.75s`);
+      }
+    });
+
+    resultTitle.appendChild(svgClone);
   }
 };
