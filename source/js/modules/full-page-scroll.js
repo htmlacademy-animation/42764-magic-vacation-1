@@ -1,7 +1,7 @@
 import throttle from 'lodash/throttle';
 import {titleAccentTypography, dateAccentTypography} from './intro';
 import {historyTitleAccentTypography} from './history';
-import {gameTimer} from './game';
+import {gameTimer, casesCounter, codesCounter} from './game';
 
 export default class FullPageScroll {
   constructor() {
@@ -108,6 +108,7 @@ export default class FullPageScroll {
   handleAnimations() {
     const isIntroPage = this.activeScreen === 0;
     const isHistoryPage = this.activeScreen === 1;
+    const isPrizesPage = this.activeScreen === 2;
     const isGamePage = this.activeScreen === 4;
 
     if (isIntroPage) {
@@ -122,6 +123,27 @@ export default class FullPageScroll {
       setTimeout(() => historyTitleAccentTypography.runAnimation(), 100);
     } else {
       historyTitleAccentTypography.destroyAnimation();
+    }
+
+    const casesDescElement = document.querySelector(`.js-prizes-cases-desc`);
+    const codesDescElement = document.querySelector(`.js-prizes-codes-desc`);
+
+    if (isPrizesPage) {
+      setTimeout(() => {
+        casesDescElement.classList.add(`active`);
+        casesCounter.runCounter();
+      }, 5000);
+
+      setTimeout(() => {
+        codesDescElement.classList.add(`active`);
+        codesCounter.runCounter();
+      }, 6000);
+    } else {
+      casesDescElement.classList.remove(`active`);
+      codesDescElement.classList.remove(`active`);
+
+      casesCounter.resetCounter();
+      codesCounter.resetCounter();
     }
 
     if (isGamePage) {

@@ -218,13 +218,25 @@
 
     .prizes__number {
       opacity: 0;
-      animation: opacity 1s ease forwards 5s;
+      display: inline-block;
+      min-width: 50px;
     }
 
     .prizes__spec {
       opacity: 0;
       transform: translateX(2rem);
-      animation: slideToLeftS 1s ease forwards 5s;
+    }
+
+    .prizes__desc {
+      &.active {
+        .prizes__number {
+          animation: opacity 1s ease forwards;
+        }
+
+        .prizes__spec {
+          animation: slideToLeftS 1s ease forwards;
+        }
+      }
     }
   }
 
@@ -259,13 +271,25 @@
 
     .prizes__number {
       opacity: 0;
-      animation: opacity 1s ease forwards 6s;
+      display: inline-block;
+      min-width: 150px;
     }
 
     .prizes__spec {
       opacity: 0;
       transform: translateX(2rem);
-      animation: slideToLeftS 1s ease forwards 6s;
+    }
+
+    .prizes__desc {
+      &.active {
+        .prizes__number {
+          animation: opacity 1s ease forwards;
+        }
+
+        .prizes__spec {
+          animation: slideToLeftS 1s ease forwards;
+        }
+      }
     }
   }
 }
